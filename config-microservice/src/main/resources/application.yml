@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: docker
+---
+spring:
+  profiles:
+    name: cloud
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        git:
+          uri: https://github.com/alanniu99/spring-boot-microservice-config
+        health:
+          repositories:
+            movie:
+              label: master
+              profiles: cloud
+            rating:
+              label: master
+              profiles: cloud
+server:
+  port: 8888
+info:
+  description: Config Server
+  url: https://github.com/alanniu99/spring-cloud-polyglot-persistence-example
+---
+spring:
+  profiles:
+    name: docker
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        git:
+          uri: https://github.com/alanniu99/spring-boot-microservice-config
+        health:
+          repositories:
+            movie:
+              label: master
+              profiles: cloud
+            rating:
+              label: master
+              profiles: cloud
+server:
+  port: 8888
+info:
+  description: Config Server
+  url: https://github.com/alanniu99/spring-cloud-polyglot-persistence-example

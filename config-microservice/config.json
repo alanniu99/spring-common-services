@@ -1,0 +1,39 @@
+{
+  "id": "/config",
+  "cmd": null,
+  "cpus": 0.5,
+  "mem": 1000,
+  "disk": 0,
+  "instances": 0,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "dockerniu/config-microservice",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 8888,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "hostname",
+          "value": "configServer"
+        },
+        {
+          "key": "net",
+          "value": "microservice"
+        },
+        {
+          "key": "network-alias",
+          "value": "configserver"
+        }
+      ],
+      "forcePullImage": false
+    }
+  }
+}

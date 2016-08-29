@@ -1,0 +1,39 @@
+{
+  "id": "/discovery",
+  "cmd": null,
+  "cpus": 0.2,
+  "mem": 1000,
+  "disk": 0,
+  "instances": 0,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "dockerniu/discovery-microservice",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 8761,       
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "hostname",
+          "value": "discovery"
+        },
+        {
+          "key": "net",
+          "value": "microservice"
+        },
+        {
+          "key": "network-alias",
+          "value": "discovery"
+        }
+      ],
+      "forcePullImage": false
+    }
+  }
+}

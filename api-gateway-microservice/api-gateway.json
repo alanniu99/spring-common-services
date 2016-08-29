@@ -1,0 +1,42 @@
+{
+  "id": "/api-getway",
+  "cmd": null,
+  "cpus": 0.2,
+  "mem": 1000,
+  "disk": 0,
+  "instances": 0,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "dockerniu/api-gateway-microservice",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 10000,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "hostname",
+          "value": "getway"
+        },
+        {
+          "key": "network",
+          "value": "microservice"
+        },
+        {
+          "key": "network-alias",
+          "value": "gateway"
+        }
+      ],
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "docker"
+  }
+}
